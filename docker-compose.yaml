@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  api:
+    build: ./api
+    container_name: backend_c
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./api:/backend
+      - /backend/node_modules
+  reactapp:
+    build: ./reactapp
+    container_name: reactapp_c
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
